@@ -1,9 +1,23 @@
-var path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
     entry: ["@babel/polyfill", __dirname + "/src/app.js"],
     output: {
         filename: "bundle.js"
+    },
+    devServer: {
+        historyApiFallback: true,
+        hot: true,
+        inline: true,
+
+        host: "localhost", // Defaults to `localhost`
+        port: 3000, // Defaults to 8080
+        proxy: {
+            "/": {
+                target: "http://localhost:8080",
+                secure: false
+            }
+        }
     },
     module: {
         rules: [
@@ -15,5 +29,10 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin({
+            multiStep: true
+        })
+    ]
 };
