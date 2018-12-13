@@ -1,0 +1,19 @@
+/* MAIN APP  CSS */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+div#root {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+div#root {
+    display: grid;
+    grid-template-rows: 50px auto 100px;
+}

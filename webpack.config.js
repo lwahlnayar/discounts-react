@@ -5,7 +5,7 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
-    entry: ["@babel/polyfill", __dirname + "/src/app.js"],
+    entry: ["@babel/polyfill", __dirname + "/src/Presentational/App.js"],
     output: {
         filename: "bundle.js"
     },
@@ -14,7 +14,7 @@ module.exports = {
             new UglifyJsPlugin({
                 cache: true,
                 parallel: true,
-                sourceMap: true // set to true if you want JS source maps
+                sourceMap: true
             }),
             new OptimizeCSSAssetsPlugin({})
         ]
@@ -23,8 +23,8 @@ module.exports = {
         historyApiFallback: true,
         hot: true,
         inline: true,
-        host: "localhost", // Defaults to `localhost`
-        port: 3000, // Defaults to 8080
+        host: "localhost",
+        port: 3000,
         proxy: {
             "/": {
                 target: "http://localhost:8080",
