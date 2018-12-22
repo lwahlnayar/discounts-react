@@ -3,8 +3,6 @@ const app = express();
 
 app.use(express.static("dist"));
 
-console.log("tesst");
-
 app.get("*", function(req, res) {
     res.sendFile(__dirname + "/index.html");
     console.log("booom");
