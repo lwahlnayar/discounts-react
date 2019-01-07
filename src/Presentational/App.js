@@ -1,20 +1,23 @@
 import React, { Fragment } from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import "./App.css";
-import Header from "../Container/Header.js";
-import Footer from "../Container/Footer.js";
+
 import Home from "./Home.js";
+import Retailer from "./Retailer.js";
 
 function App() {
+    let fakeRetailerData = ["zalando", "amazon"];
     return (
-        <Fragment>
-            <Header />
-            <Home />
-            <Footer />
-        </Fragment>
+        <Router>
+            <Fragment>
+                <Route path="/" exact component={Home} />
+                <Route path="/:retailer" render={() => <Retailer />} />
+            </Fragment>
+        </Router>
     );
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+render(<App />, rootElement);
