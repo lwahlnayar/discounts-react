@@ -5,12 +5,10 @@ import "./Home.css";
 
 export default class Home extends Component {
     render() {
-        let top20 = this.props.retailers.map(({ path, name }) => (
-            <ul>
-                <li>
-                    <Link to={path}>{name}</Link>
-                </li>
-            </ul>
+        let top20 = this.props.retailers.map(({ path, name, id }) => (
+            <li key={id}>
+                <Link to={path}>{name}</Link>
+            </li>
         ));
 
         return (
@@ -36,7 +34,7 @@ export default class Home extends Component {
                     <figure />
                     <figure />
                     <figure />
-                    {top20}
+                    <ul>{top20}</ul>
                 </div>
             </main>
         );
