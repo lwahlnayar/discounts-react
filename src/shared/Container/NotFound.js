@@ -1,7 +1,5 @@
 import React from "react";
 
-// import "./NotFound.css";
-
 const NotFound = props => {
     return <div>404! Not found.</div>;
 };

@@ -92,7 +92,10 @@ const serverConfig = {
             },
             {
                 test: /\.css$/,
-                use: ["css-loader"]
+                loader: "css-loader",
+                options: {
+                    exportOnlyLocals: true
+                }
             }
         ]
     },

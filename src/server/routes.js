@@ -1,6 +1,6 @@
-import Home from "../shared/presentational/Home.js";
-import Retailer from "../shared/presentational/Retailer.js";
-import NotFound from "../shared/container/NotFound.js";
+import Home from "../shared/Presentational/Home.js";
+import Retailer from "../shared/Presentational/Retailer.js";
+import NotFound from "../shared/Container/NotFound.js";
 
 import retailers from "../retailers";
 

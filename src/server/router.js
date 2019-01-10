@@ -3,8 +3,8 @@ import React from "react";
 import { matchPath, StaticRouter } from "react-router-dom";
 
 import routes from "./routes";
-import renderFullPage from "./renderFullPage";
-import App from "../shared/presentational/App.js";
+import renderHtml from "./renderHtml";
+import App from "../shared/Presentational/App.js";
 
 export default function router(req, res) {
     const match = routes.reduce(
@@ -23,5 +23,5 @@ export default function router(req, res) {
         </StaticRouter>
     );
 
-    res.status(200).send(renderFullPage(html));
+    res.status(200).send(renderHtml(html));
 }
