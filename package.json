@@ -6,6 +6,7 @@
     "scripts": {
         "build": "webpack --mode production",
         "client:server:bundles": "webpack --mode development",
+        "client:server:watch": "webpack --mode development --watch",
         "webpack-dev-server": "webpack-dev-server --mode development",
         "build:client":
             "webpack --mode production --config ./webpack.config.js/",

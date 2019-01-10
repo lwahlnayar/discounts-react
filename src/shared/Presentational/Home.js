@@ -16,7 +16,7 @@ export default class Home extends Component {
                 <div id="home-layout">
                     <h1>Welcome to our Discounts Page/SEO KW 1</h1>
                     <p>
-                        daaamn good quality content good quality content good
+                        supppp good quality content good quality content good
                         quality content good quality content good quality
                         content good quality content good quality content good
                         quality content good quality content good quality

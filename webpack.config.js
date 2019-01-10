@@ -9,7 +9,9 @@ const clientConfig = {
     entry: ["@babel/polyfill", __dirname + "/src/client/index.js"],
     output: {
         path: __dirname + "/build/",
-        filename: "bundle.js"
+        filename: "bundle.js",
+        hotUpdateChunkFilename: "../hot/hot-update-client.js",
+        hotUpdateMainFilename: "../hot/hot-update-client.json"
     },
     optimization: {
         minimizer: [
@@ -74,12 +76,15 @@ const clientConfig = {
 
 const serverConfig = {
     entry: [__dirname + "/src/server/index.js"],
+    watch: true,
     target: "node",
     externals: [nodeExternals()],
     output: {
         path: __dirname,
         filename: "bundle-server.js",
-        libraryTarget: "commonjs2"
+        libraryTarget: "commonjs2",
+        hotUpdateChunkFilename: "hot/hot-update-server.js",
+        hotUpdateMainFilename: "hot/hot-update-server.json"
     },
     module: {
         rules: [
