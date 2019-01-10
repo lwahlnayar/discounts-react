@@ -4,11 +4,17 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "node src/server/index.js",
-        "build": "webpack --mode production --colors",
-        "dev-server": "nodemon src/server/index.js",
-        "dev-client": "webpack-dev-server --mode development",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "webpack --mode production",
+        "client:server:bundles": "webpack --mode development",
+        "client:server:watch": "webpack --mode development --watch",
+        "webpack-dev-server": "webpack-dev-server --mode development",
+        "build:client":
+            "webpack --mode production --config ./webpack.config.js/",
+        "build:watch:client":
+            "webpack --mode development --config ./webpack.config.js/ --watch",
+        "build:prod": "npm run build && npm run build:client",
+        "start:dev":
+            "parallelshell 'npm run build:watch' 'npm run build:watch:client' 'nodemon ./build/server/index.js'"
     },
     "engines": {
         "node": "8.11.3"
@@ -39,6 +45,7 @@
         "uglifyjs-webpack-plugin": "^2.0.1",
         "webpack": "^4.27.1",
         "webpack-cli": "^3.1.2",
-        "webpack-dev-server": "^3.1.14"
+        "webpack-dev-server": "^3.1.14",
+        "webpack-node-externals": "^1.7.2"
     }
 }
