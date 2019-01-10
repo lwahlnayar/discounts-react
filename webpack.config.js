@@ -78,7 +78,7 @@ const serverConfig = {
     externals: [nodeExternals()],
     output: {
         path: __dirname,
-        filename: "bundle_server.js",
+        filename: "bundle-server.js",
         libraryTarget: "commonjs2"
     },
     module: {

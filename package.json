@@ -5,11 +5,15 @@
     "main": "index.js",
     "scripts": {
         "build": "webpack --mode production",
-        "client:bundle:watch": "webpack --mode development",
-        "build:client": "webpack --mode production --config ./webpack.config.js/",
-        "build:watch:client": "webpack --mode development --config ./webpack.config.js/ --watch",
+        "client:server:bundles": "webpack --mode development",
+        "webpack-dev-server": "webpack-dev-server --mode development",
+        "build:client":
+            "webpack --mode production --config ./webpack.config.js/",
+        "build:watch:client":
+            "webpack --mode development --config ./webpack.config.js/ --watch",
         "build:prod": "npm run build && npm run build:client",
-        "start:dev": "parallelshell 'npm run build:watch' 'npm run build:watch:client' 'nodemon ./build/server/index.js'"
+        "start:dev":
+            "parallelshell 'npm run build:watch' 'npm run build:watch:client' 'nodemon ./build/server/index.js'"
     },
     "engines": {
         "node": "8.11.3"
