@@ -7,6 +7,7 @@ const nodeExternals = require("webpack-node-externals");
 
 const clientConfig = {
     entry: ["@babel/polyfill", __dirname + "/src/client/index.js"],
+    name: "client",
     output: {
         path: __dirname + "/build/",
         filename: "bundle.js",
@@ -22,19 +23,6 @@ const clientConfig = {
             }),
             new OptimizeCSSAssetsPlugin({})
         ]
-    },
-    devServer: {
-        historyApiFallback: true,
-        hot: true,
-        inline: true,
-        host: "localhost",
-        port: 3000,
-        proxy: {
-            "/": {
-                target: "http://localhost:8080",
-                secure: false
-            }
-        }
     },
     module: {
         rules: [
@@ -76,6 +64,7 @@ const clientConfig = {
 
 const serverConfig = {
     entry: [__dirname + "/src/server/index.js"],
+    name: "server",
     watch: true,
     target: "node",
     externals: [nodeExternals()],
@@ -107,10 +96,6 @@ const serverConfig = {
     plugins: [
         new webpack.HotModuleReplacementPlugin({
             multiStep: true
-        }),
-        new MiniCssExtractPlugin({
-            filename: "[name].css",
-            chunkFilename: "[id].css"
         }),
         new CompressionPlugin({
             filename: "[path].gz[query]",

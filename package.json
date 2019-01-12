@@ -4,17 +4,10 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "webpack --mode production",
-        "client:server:bundles": "webpack --mode development",
-        "client:server:watch": "webpack --mode development --watch",
-        "webpack-dev-server": "webpack-dev-server --mode development",
-        "build:client":
-            "webpack --mode production --config ./webpack.config.js/",
-        "build:watch:client":
-            "webpack --mode development --config ./webpack.config.js/ --watch",
-        "build:prod": "npm run build && npm run build:client",
-        "start:dev":
-            "parallelshell 'npm run build:watch' 'npm run build:watch:client' 'nodemon ./build/server/index.js'"
+        "build:bundles": "webpack --mode production",
+        "build:bundles:watch": "webpack --mode development --watch",
+        "server": "nodemon bundle-server.js",
+        "both": "concurrently 'npm:build:bundles:watch' 'npm:server'"
     },
     "engines": {
         "node": "8.11.3"
@@ -22,6 +15,7 @@
     "dependencies": {
         "@babel/polyfill": "^7.0.0",
         "body-parser": "^1.18.3",
+        "concurrently": "^4.1.0",
         "csurf": "^1.9.0",
         "express": "^4.16.4",
         "react": "^16.6.3",
