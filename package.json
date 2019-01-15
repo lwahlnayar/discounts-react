@@ -7,7 +7,7 @@
         "build:bundles": "webpack --mode production",
         "build:bundles:watch": "webpack --mode development --watch",
         "server": "nodemon bundle-server.js",
-        "both": "concurrently 'npm:build:bundles:watch' 'npm:server'"
+        "all": "concurrently 'npm:build:bundles:watch' 'npm:server'"
     },
     "engines": {
         "node": "8.11.3"

@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "5600267ec480a2f02a0a";
+/******/ 	var hotCurrentHash = "a77939c6c7d57ed546a0";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -753,6 +753,17 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./secrets.json":
+/*!**********************!*\
+  !*** ./secrets.json ***!
+  \**********************/
+/*! exports provided: pgLocalLogin, default */
+/***/ (function(module) {
+
+eval("module.exports = {\"pgLocalLogin\":\"postgres:Rodney:postgres@localhost:5432/discounts\"};\n\n//# sourceURL=webpack:///./secrets.json?");
+
+/***/ }),
+
 /***/ "./src/retailers.js":
 /*!**************************!*\
   !*** ./src/retailers.js ***!
@@ -765,6 +776,17 @@ eval("__webpack_require__.r(__webpack_exports__);\nvar retailers = [{\n  path: \
 
 /***/ }),
 
+/***/ "./src/server/db.js":
+/*!**************************!*\
+  !*** ./src/server/db.js ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var spicedPg = __webpack_require__(/*! spiced-pg */ \"spiced-pg\"); //Makes connection from server to database\n\n\nvar db = spicedPg(process.env.DATABASE_URL || __webpack_require__(/*! ../../secrets.json */ \"./secrets.json\").pgLocalLogin);\n\nmodule.exports.allRetailers = function () {\n  return db.query(\"SELECT * FROM retailers\");\n}; // module.exports.createRetailer = (\n//     name,\n//     quality,\n//     active_vouchers,\n//     published,\n//     indexed,\n//     kw1,\n//     url\n// ) => {\n//     const query = `INSERT INTO retailers (name, quality, active_vouchers, published, indexed, KW1, url) VALUES ($1, $2, $3, $4, $5, $6, $7)`;\n//     return db.query(query, [\n//         name,\n//         quality,\n//         active_vouchers,\n//         published,\n//         indexed,\n//         kw1,\n//         url\n//     ]);\n// };\n\n//# sourceURL=webpack:///./src/server/db.js?");
+
+/***/ }),
+
 /***/ "./src/server/index.js":
 /*!*****************************!*\
   !*** ./src/server/index.js ***!
@@ -773,7 +795,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nvar retailers = [{\n  path: \
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router */ \"./src/server/router.js\");\n\n\nvar app = express__WEBPACK_IMPORTED_MODULE_0___default()();\napp.use(express__WEBPACK_IMPORTED_MODULE_0___default.a.static(\"build\"));\napp.get(\"*\", _router__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\napp.listen(8080, function () {\n  console.log(\"Main server listening on port 8080 --->\");\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (app);\n\n//# sourceURL=webpack:///./src/server/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router */ \"./src/server/router.js\");\n/* harmony import */ var _db__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./db */ \"./src/server/db.js\");\n/* harmony import */ var _db__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_db__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\nvar app = express__WEBPACK_IMPORTED_MODULE_0___default()();\napp.use(express__WEBPACK_IMPORTED_MODULE_0___default.a.static(\"build\"));\napp.get(\"*\", _router__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n_db__WEBPACK_IMPORTED_MODULE_2___default.a.allRetailers().then(function (retailers) {\n  console.log(retailers.rows);\n});\napp.listen(8080, function () {\n  console.log(\"Main server listening on port 8080 --->\");\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (app);\n\n//# sourceURL=webpack:///./src/server/index.js?");
 
 /***/ }),
 
@@ -992,6 +1014,17 @@ eval("module.exports = require(\"react-dom/server\");\n\n//# sourceURL=webpack:/
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"react-router-dom\");\n\n//# sourceURL=webpack:///external_%22react-router-dom%22?");
+
+/***/ }),
+
+/***/ "spiced-pg":
+/*!****************************!*\
+  !*** external "spiced-pg" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"spiced-pg\");\n\n//# sourceURL=webpack:///external_%22spiced-pg%22?");
 
 /***/ })
 
