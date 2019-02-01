@@ -1,7 +1,3 @@
-import Home from "../shared/Presentational/Home.js";
-import Retailer from "../shared/Presentational/Retailer.js";
-import NotFound from "../shared/Container/NotFound.js";
-
 import retailers from "../retailers";
 
 const routes = ["/"];

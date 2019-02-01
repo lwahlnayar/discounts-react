@@ -4,7 +4,7 @@ import { matchPath, StaticRouter } from "react-router-dom";
 
 import routes from "./routes";
 import renderHtml from "./renderHtml";
-import App from "../shared/Presentational/App.js";
+import App from "../shared/Container/App.js";
 
 export default function router(req, res) {
     const match = routes.reduce(
