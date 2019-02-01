@@ -7,12 +7,17 @@ const app = express();
 
 app.use(express.static("build"));
 
-app.get("*", router);
-
-// postgres query test
-db.allRetailers().then(retailers => {
-    console.log(retailers.rows);
+app.get("/all-retailers-api", (req, res) => {
+    db.allRetailers().then(retailers => {
+        res.json({
+            retailers: retailers.rows.map(({ name, url, id }) => {
+                return { name, url, id };
+            })
+        });
+    });
 });
+
+app.get("*", router);
 
 app.listen(8080, function() {
     console.log("Main server listening on port 8080 --->");

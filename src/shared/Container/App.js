@@ -1,7 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment, Component } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import "./App.css";
+import axios from "../../axios.js";
 import retailers from "../../retailers.js";
 
 import Header from "../Presentational/Header.js";
@@ -10,27 +11,40 @@ import Home from "./Home.js";
 import Retailer from "./Retailer.js";
 import NotFound from "../Presentational/NotFound.js";
 
-export default function App() {
-    return (
-        <Fragment>
-            <Header />
-            <Switch>
-                <Route
-                    path="/"
-                    exact
-                    render={() => <Home retailers={retailers} />}
-                />
-                {retailers.map(({ path, id }) => (
+export default class App extends Component {
+    constructor() {
+        super();
+        this.state = {};
+    }
+
+    componentDidMount() {
+        axios.get("/all-retailers-api").then(retailers => {
+            console.log(retailers.data);
+        });
+    }
+
+    render() {
+        return (
+            <Fragment>
+                <Header />
+                <Switch>
                     <Route
-                        path={path}
+                        path="/"
                         exact
-                        key={id}
-                        render={() => <Retailer id={id} />}
+                        render={() => <Home retailers={retailers} />}
                     />
-                ))}
-                <Route component={NotFound} />
-            </Switch>
-            <Footer />
-        </Fragment>
-    );
+                    {retailers.map(({ path, id }) => (
+                        <Route
+                            path={path}
+                            exact
+                            key={id}
+                            render={() => <Retailer id={id} />}
+                        />
+                    ))}
+                    <Route component={NotFound} />
+                </Switch>
+                <Footer />
+            </Fragment>
+        );
+    }
 }

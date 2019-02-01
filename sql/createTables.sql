@@ -19,9 +19,39 @@ CREATE TABLE retailers(
 INSERT INTO retailers (name, quality, active_vouchers, published, indexed, KW1, url) VALUES (
     'Zalando',
     'AAA',
-    5,
+    0,
     'no',
     'no',
     'zalando promo code',
     'zalando-promo-code'
+);
+
+INSERT INTO retailers (name, quality, active_vouchers, published, indexed, KW1, url) VALUES (
+    'Amazon',
+    'AAA',
+    0,
+    'no',
+    'no',
+    'amazon discount code',
+    'amazon-promo-code'
+);
+
+INSERT INTO retailers (name, quality, active_vouchers, published, indexed, KW1, url) VALUES (
+    'GoDaddy',
+    'AAA',
+    0,
+    'no',
+    'no',
+    'godaddy discount code',
+    'godaddy-discount-code'
+);
+
+INSERT INTO retailers (name, quality, active_vouchers, published, indexed, KW1, url) VALUES (
+    'Vueling',
+    'AAA',
+    0,
+    'no',
+    'no',
+    'vueling promo code',
+    'vueling-promo-code'
 );
