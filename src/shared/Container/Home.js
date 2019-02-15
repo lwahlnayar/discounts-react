@@ -5,9 +5,9 @@ import "./Home.css";
 
 export default class Home extends Component {
     render() {
-        let top20 = this.props.retailers.map(({ path, name, id }) => (
+        let top20 = this.props.retailers.map(({ url, name, id }) => (
             <li key={id}>
-                <Link to={path}>{name}</Link>
+                <Link to={url}>{name}</Link>
             </li>
         ));
 

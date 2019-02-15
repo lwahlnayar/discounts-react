@@ -7,15 +7,15 @@ const app = express();
 
 app.use(express.static("build"));
 
-app.get("/all-retailers-api", (req, res) => {
-    db.allRetailers().then(retailers => {
-        res.json({
-            retailers: retailers.rows.map(({ name, url, id }) => {
-                return { name, url, id };
-            })
-        });
-    });
-});
+// app.get("/all-retailers-api", (req, res) => {
+//     db.allRetailers().then(retailers => {
+//         res.json({
+//             retailers: retailers.rows.map(({ name, url, id }) => {
+//                 return { name, url, id };
+//             })
+//         });
+//     });
+// });
 
 app.get("*", router);
 

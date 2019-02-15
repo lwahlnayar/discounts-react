@@ -2,8 +2,8 @@ import React, { Fragment, Component } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import "./App.css";
+import retailerData from "../../retailer-data";
 import axios from "../../axios.js";
-import retailers from "../../retailers.js";
 
 import Header from "../Presentational/Header.js";
 import Footer from "../Presentational/Footer.js";
@@ -17,12 +17,6 @@ export default class App extends Component {
         this.state = {};
     }
 
-    componentDidMount() {
-        axios.get("/all-retailers-api").then(retailers => {
-            console.log(retailers.data);
-        });
-    }
-
     render() {
         return (
             <Fragment>
@@ -31,11 +25,11 @@ export default class App extends Component {
                     <Route
                         path="/"
                         exact
-                        render={() => <Home retailers={retailers} />}
+                        render={() => <Home retailers={retailerData} />}
                     />
-                    {retailers.map(({ path, id }) => (
+                    {retailerData.map(({ url, id }) => (
                         <Route
-                            path={path}
+                            path={url}
                             exact
                             key={id}
                             render={() => <Retailer id={id} />}

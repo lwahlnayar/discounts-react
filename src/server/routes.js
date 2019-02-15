@@ -1,10 +1,10 @@
-import retailers from "../retailers";
+import retailerData from "./../retailer-data";
 
 const routes = ["/"];
 
-if (retailers.length > 0) {
-    for (var r = 0; r <= retailers.length - 1; ++r) {
-        routes.push(retailers[r].path);
+if (retailerData.length > 0) {
+    for (var i = 0; i <= retailerData.length - 1; ++i) {
+        routes.push(retailerData[i].url);
     }
 }
 
