@@ -1,0 +1,23 @@
+/* HEADER */
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: salmon;
+}
+
+header .header-elements {
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    grid-gap: 35px;
+}
+
+header ul {
+    display: flex;
+    justify-content: flex-end;
+}
+
+header li {
+    list-style: none;
+    padding: 0 5px 0 5px;
+}

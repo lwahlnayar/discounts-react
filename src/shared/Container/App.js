@@ -5,7 +5,7 @@ import "./App.css";
 import retailerData from "../../retailer-data";
 import axios from "../../axios.js";
 
-import Header from "../Presentational/Header.js";
+import Header from "./Header.js";
 import Footer from "../Presentational/Footer.js";
 import Home from "./Home.js";
 import Retailer from "./Retailer.js";

@@ -13,7 +13,7 @@ export default class Home extends Component {
 
         return (
             <main id="home">
-                <div id="home-layout">
+                <div id="home-layout" className="center">
                     <h1>Welcome to our Discounts Page/SEO KW 1</h1>
                     <p>
                         supppp good quality content good quality content good
@@ -28,6 +28,54 @@ export default class Home extends Component {
                         quality content good quality content
                     </p>
                     <h2>random SEO keyword 2 here</h2>
+                    <p>
+                        supppp good quality content good quality content good
+                        quality content good quality content good quality
+                        content good quality content good quality content good
+                        quality content good quality content good quality
+                        content good quality content good quality content good
+                        quality content good quality content good quality
+                        content good quality content good quality content good
+                        quality content good quality content good quality
+                        content good quality content good quality content good
+                        quality content good quality content
+                    </p>
+                    <p>
+                        supppp good quality content good quality content good
+                        quality content good quality content good quality
+                        content good quality content good quality content good
+                        quality content good quality content good quality
+                        content good quality content good quality content good
+                        quality content good quality content good quality
+                        content good quality content good quality content good
+                        quality content good quality content good quality
+                        content good quality content good quality content good
+                        quality content good quality content
+                    </p>
+                    <p>
+                        supppp good quality content good quality content good
+                        quality content good quality content good quality
+                        content good quality content good quality content good
+                        quality content good quality content good quality
+                        content good quality content good quality content good
+                        quality content good quality content good quality
+                        content good quality content good quality content good
+                        quality content good quality content good quality
+                        content good quality content good quality content good
+                        quality content good quality content
+                    </p>
+                    <p>
+                        supppp good quality content good quality content good
+                        quality content good quality content good quality
+                        content good quality content good quality content good
+                        quality content good quality content good quality
+                        content good quality content good quality content good
+                        quality content good quality content good quality
+                        content good quality content good quality content good
+                        quality content good quality content good quality
+                        content good quality content good quality content good
+                        quality content good quality content
+                    </p>
                     <figure />
                     <figure />
                     <figure />
