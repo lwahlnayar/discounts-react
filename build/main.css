@@ -22,8 +22,14 @@ div#root {
 
 header {
     display: flex;
+    position: fixed;
+    width: 100%;
     justify-content: center;
     background-color: salmon;
+}
+
+header.header-hidden {
+    transform: translateY(-100px);
 }
 
 header .header-elements {
