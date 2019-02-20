@@ -28,8 +28,14 @@ header {
     background-color: salmon;
 }
 
-header.header-hidden {
+header.hd-active {
+    transform: translateY(0px);
+    transition-duration: 0.3s;
+}
+
+header.hd-hidden {
     transform: translateY(-100px);
+    transition-duration: 0.3s;
 }
 
 header .header-elements {

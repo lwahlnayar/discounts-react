@@ -8,15 +8,34 @@ class Header extends Component {
     constructor() {
         super();
         this.state = {
-            prevScrollUp: window.pageYOffset,
+            prevScroll: window.pageYOffset,
             visible: true
         };
+        this.handleScroll = this.handleScroll.bind(this);
+    }
+
+    componentDidMount() {
+        window.addEventListener("scroll", this.handleScroll);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("scroll", this.handleScroll);
+    }
+
+    handleScroll() {
+        let curScroll = window.pageYOffset,
+            { prevScroll } = this.state;
+        let visible = prevScroll >= curScroll;
+
+        this.setState({ prevScroll: curScroll, visible });
     }
 
     render() {
         return (
             <div className="header-grid">
-                <header className={!this.state.visible && "header-hidden"}>
+                <header
+                    className={this.state.visible ? "hd-active" : "hd-hidden"}
+                >
                     <div className="header-elements center">
                         <div>Logo</div>
                         <div
