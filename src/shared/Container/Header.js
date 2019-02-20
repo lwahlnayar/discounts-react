@@ -4,7 +4,7 @@ import window from "global";
 
 import "./Header.css";
 
-class Header extends Component {
+export default class Header extends Component {
     constructor() {
         super();
         this.state = {
@@ -69,5 +69,3 @@ class Header extends Component {
         );
     }
 }
-
-export default Header;
