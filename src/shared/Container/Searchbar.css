@@ -1,0 +1,12 @@
+/* SEARCH BAR */
+
+.searchbar input {
+    margin-top: 6px;
+    font-size: 18px;
+    border: none;
+    border-radius: 2px;
+    text-indent: 5px;
+    height: 75%;
+    width: 100%;
+    max-width: 400px;
+}

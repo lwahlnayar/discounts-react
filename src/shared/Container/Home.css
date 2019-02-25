@@ -21,6 +21,7 @@ div#home-layout h1 {
 
 div#home-layout p {
     grid-column: 1 / 4;
+    border: 1px solid blue;
 }
 
 div#home-layout h2 {

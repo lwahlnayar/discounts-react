@@ -7,6 +7,13 @@ const db = spicedPg(
 
 module.exports.allRetailers = () => db.query(`SELECT * FROM retailers`);
 
+module.exports.allRetailers = string => {
+    const query = `SELECT name, active_vouchers FROM retailers
+                  WHERE (name ILIKE $1)
+                  ORDER BY name ASC LIMIT 4`;
+    db.query(query, [string]);
+};
+
 // module.exports.createRetailer = (
 //     name,
 //     quality,

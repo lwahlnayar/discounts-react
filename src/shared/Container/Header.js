@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import window from "global";
 
+import Searchbar from "./Searchbar";
 import "./Header.css";
 
 export default class Header extends Component {
@@ -38,13 +39,7 @@ export default class Header extends Component {
                 >
                     <div className="header-elements center">
                         <div>Logo</div>
-                        <div
-                            style={{
-                                border: "1px solid black"
-                            }}
-                        >
-                            Search Component Here
-                        </div>
+                        <Searchbar />
                         <ul>
                             <li>
                                 <NavLink

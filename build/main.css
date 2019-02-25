@@ -8,7 +8,7 @@ html,
 body,
 div#root {
     font-family: helvetica, arial, sans-serif;
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -17,6 +17,19 @@ div#root {
 div#root {
     display: grid;
     grid-template-rows: 50px auto 100px;
+}
+
+/* SEARCH BAR */
+
+.searchbar input {
+    margin-top: 6px;
+    font-size: 18px;
+    border: none;
+    border-radius: 2px;
+    text-indent: 5px;
+    height: 75%;
+    width: 100%;
+    max-width: 400px;
 }
 
 /* HEADER */
@@ -94,6 +107,7 @@ div#home-layout h1 {
 
 div#home-layout p {
     grid-column: 1 / 4;
+    border: 1px solid blue;
 }
 
 div#home-layout h2 {
