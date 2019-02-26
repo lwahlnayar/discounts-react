@@ -4,3 +4,7 @@ main#rlp {
     display: flex;
     justify-content: center;
 }
+
+#retailer-layout {
+    border: 3px solid yellow;
+}

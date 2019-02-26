@@ -17,6 +17,15 @@ app.get("/all-retailers-api", (req, res) => {
     });
 });
 
+app.get("/rlp-data-api/:id", (req, res) => {
+    const id = req.params.id;
+    db.retailerData(id).then(retailer => {
+        // retailer.rows[0].kw1 = retailer.rows[0].kw1[0].toUpperCase();
+        // console.log(retailer.rows[0]);
+        res.json({ retailer: retailer.rows[0] });
+    });
+});
+
 app.post("/search-retailers-api", (req, res) => {
     console.log(req);
     // db.search().then(retailers => {
