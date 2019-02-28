@@ -8,6 +8,7 @@ const db = spicedPg(
 module.exports.allRetailers = () => db.query(`SELECT * FROM retailers`);
 
 module.exports.search = string => {
+    string += "%";
     const query = `SELECT name FROM retailers
                   WHERE (name ILIKE $1)
                   ORDER BY name ASC LIMIT 4`;

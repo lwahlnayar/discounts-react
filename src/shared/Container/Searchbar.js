@@ -7,17 +7,23 @@ import axios from "../../axios";
 export default class Searchbar extends Component {
     constructor() {
         super();
-        this.state = {
-            input: "",
-            searchedUsersArray: []
-        };
+        this.state = { searchResults: [] };
         this.search = this.search.bind(this);
+        this.ajaxCall = this.ajaxCall.bind(this);
     }
 
     search(e) {
-        this.setState({ input: e.target.value });
-        axios.post("/search-retailers-api", e.target.value).then(res => {
-            console.log(res);
+        if (e.target.value.length == "0") {
+            return this.setState({ searchResults: [] });
+        }
+        const input = { input: e.target.value };
+        if (this.timerId) clearTimeout(this.timerId);
+        this.timerId = setTimeout(this.ajaxCall, 2500, input);
+    }
+
+    ajaxCall(obj) {
+        axios.post("/search-retailers-api", obj).then(({ data }) => {
+            this.setState({ searchResults: data.searchResults });
         });
     }
 

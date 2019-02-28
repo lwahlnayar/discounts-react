@@ -1,10 +1,12 @@
 import express from "express";
+import bodyParser from "body-parser";
 
 import router from "./router";
 import db from "./db";
 
 const app = express();
 
+app.use(bodyParser.json());
 app.use(express.static("build"));
 
 app.get("/all-retailers-api", (req, res) => {
@@ -20,18 +22,15 @@ app.get("/all-retailers-api", (req, res) => {
 app.get("/rlp-data-api/:id", (req, res) => {
     const id = req.params.id;
     db.retailerData(id).then(retailer => {
-        // retailer.rows[0].kw1 = retailer.rows[0].kw1[0].toUpperCase();
-        // console.log(retailer.rows[0]);
         res.json({ retailer: retailer.rows[0] });
     });
 });
 
 app.post("/search-retailers-api", (req, res) => {
-    console.log(req);
-    // db.search().then(retailers => {
-    //     console.log(retailers);
-    // });
-    res.json({ yo: "yo" });
+    console.log(req.body.input);
+    db.search(req.body.input).then(({ rows }) => {
+        res.json({ searchResults: rows });
+    });
 });
 
 app.get("*", router);
