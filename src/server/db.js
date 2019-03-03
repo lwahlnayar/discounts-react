@@ -16,7 +16,7 @@ module.exports.search = string => {
 };
 
 module.exports.retailerData = id => {
-    const query = `SELECT name, KW1, KW2, KW3, KW4, indexed, affiliate_network, static_content_top, static_content_left, static_content_right FROM retailers
+    const query = `SELECT name, url, KW1, KW2, KW3, KW4, indexed, affiliate_network, static_content_top, static_content_left, static_content_right FROM retailers
                 WHERE (id = $1)`;
     return db.query(query, [id]);
 };

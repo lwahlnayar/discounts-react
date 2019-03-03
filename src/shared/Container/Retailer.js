@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import axios from "../../axios";
 import "./Retailer.css";
+import RetailerHeader from "../Presentational/RetailerHeader";
 
 export default class Retailer extends Component {
     constructor() {
@@ -22,6 +23,7 @@ export default class Retailer extends Component {
 
         let html = (
             <main id="rlp">
+                <RetailerHeader retailer={retailer} />
                 <div id="retailer-layout" className="center">
                     <h1>
                         {retailer && retailer.kw1} - Find your code or deal
@@ -32,6 +34,6 @@ export default class Retailer extends Component {
             </main>
         );
 
-        return retailer ? html : <div>Loading</div>;
+        return retailer ? html : <div>Loading...</div>;
     }
 }
